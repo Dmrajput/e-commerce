@@ -19,3 +19,13 @@ async function startServer() {
 }
 
 startServer();
+
+process.on("unhandledRejection", (error) => {
+  console.error("Unhandled rejection:", error.message);
+  process.exit(1);
+});
+
+process.on("uncaughtException", (error) => {
+  console.error("Uncaught exception:", error.message);
+  process.exit(1);
+});
